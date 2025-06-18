@@ -153,12 +153,12 @@ endef
 $(foreach BINARY,$(CONTAINER_BINARIES),$(eval $(CONTAINER_RULE)))
 
 .PHONY: containers
-containers: $(CONTAINER_BUILDSTAMPS) images-containers
+containers: $(CONTAINER_BUILDSTAMPS) #images-containers
 
 
 # Rules for pushing
 .PHONY: push
-push: $(PUSH_BUILDSTAMPS) images-push
+push: $(PUSH_BUILDSTAMPS) #images-push
 
 .%-push: .%-container
 	@echo "pushing  :" $$(head -n 1 $<)
